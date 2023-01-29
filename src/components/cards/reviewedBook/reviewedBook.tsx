@@ -21,7 +21,7 @@ const ReviewedBook: React.FC<{ book: IBook }> = ({ book }) => {
         />
       </div>
       <div style={{ textAlign: "center", width: 270 }}>
-        <h4 className="book-genre">{book.bookGenre}</h4>
+        <h4 style={{ color: "#83aff7", marginTop: 30 }}>{book.bookGenre}</h4>
         <h3>{toTitleCase(book.name)}</h3>
         <h5 className="author-info">{book.author}</h5>
       </div>

@@ -10,7 +10,7 @@ const CarouselControls: React.FC<{ direction: string }> = ({ direction }) => {
         <div className="right-arrow">
           <FiArrowRight
             size={35}
-            color="#8D28AD"
+            color="#143d81"
             className="arrow"
           ></FiArrowRight>
         </div>
@@ -18,7 +18,7 @@ const CarouselControls: React.FC<{ direction: string }> = ({ direction }) => {
         <div className="left-arrow">
           <FiArrowLeft
             size={35}
-            color="#8D28AD"
+            color="#143d81"
             className="arrow"
           ></FiArrowLeft>
         </div>

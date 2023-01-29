@@ -1,8 +1,7 @@
 .navbar-button-create {
     margin-bottom: 30px;
     margin-top: 10px;
-    
-    background-color: #8D28AD;
+    background-color: #143d81;
     color: white;
     border: none;
     border-radius: 5px;
@@ -14,9 +13,8 @@
     height: 53px;
     margin-bottom: 10px;
     margin-top: 10px;
-    
     background-color: white ;
-    color: #8D28AD;
+    color: #143d81;
     border: none;
     border-radius: 5px;
     font-weight: 600;
@@ -24,13 +22,12 @@
     font-size: 18px;
 }
 .navbar-button-menu:hover {
-    background-color: #8D28AD;
+    background-color: #143d81;
     color: white;
 }
 .navbar-button-signin {
     margin-bottom: 40px;
     font-size: 20px;
-    
     margin-top: 25px;
     font-weight: bold;
     color: #636363;

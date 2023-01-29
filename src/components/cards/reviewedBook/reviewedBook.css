@@ -6,8 +6,8 @@
 .star-container{
     background-color: #FF7A00;
     border-radius: 50px;
-     padding: 4px;
-    padding-inline: 8px;
+    padding: 6px;
+    padding-inline: 10px;
 }
 .rating-container{
     display: flex;
@@ -27,6 +27,6 @@
     opacity: 0.6;
 }
 .book-genre{
-    color: #8D28AD;
-    margin-top: 30px;
+    color: #143d81;
+    margin-top: 300px;
 }

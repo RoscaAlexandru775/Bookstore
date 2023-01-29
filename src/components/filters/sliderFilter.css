@@ -1,0 +1,10 @@
+.MuiSlider-thumb{
+    color: #93b8f5;
+  }
+  .MuiSlider-rail{
+    color:#143d81;
+    opacity: 0.73;
+  }
+  .MuiSlider-track{
+    color: #93b8f5;
+  }

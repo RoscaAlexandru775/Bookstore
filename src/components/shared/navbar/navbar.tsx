@@ -81,14 +81,14 @@ export default function Navbar() {
         <div
           className="d-flex flex-row justify-content-center align-items-center"
           style={{
-            backgroundColor: "#8D28AD",
+            backgroundColor: "#143d81",
             width: "100%",
             height: 60,
             marginBottom: 100,
           }}
         >
           <IoMdArrowDropup
-            color="#8D28AD"
+            color="#143d81"
             size={30}
             style={{
               position: "absolute",

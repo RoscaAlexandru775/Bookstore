@@ -74,7 +74,7 @@ const Presentation: React.FC = () => {
         </div>
         <TestimonialsCard></TestimonialsCard>
       </div>
-      <InfoCard backgroundColor="#380B46" textColor="white" />
+      <InfoCard backgroundColor="#143d81" textColor="white" />
       <ComingSoonModal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}

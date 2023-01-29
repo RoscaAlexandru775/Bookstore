@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             >
               <FaFacebookF
                 size={30}
-                style={{ color: "#CA8FDD", marginTop: 20 }}
+                style={{ color: "#143d81", marginTop: 20, opacity: 0.8 }}
               ></FaFacebookF>
             </div>
             <div
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             >
               <FaYoutube
                 size={35}
-                style={{ color: "#CA8FDD", marginTop: 20 }}
+                style={{ color: "#143d81", marginTop: 20, opacity: 0.8 }}
               ></FaYoutube>
             </div>
             <div
@@ -50,7 +50,12 @@ const Footer: React.FC = () => {
             >
               <FaTwitter
                 size={30}
-                style={{ color: "#CA8FDD", marginTop: 20, marginLeft: 15 }}
+                style={{
+                  color: "#143d81",
+                  marginTop: 20,
+                  marginLeft: 15,
+                  opacity: 0.8,
+                }}
               ></FaTwitter>
             </div>
             <div
@@ -59,7 +64,12 @@ const Footer: React.FC = () => {
             >
               <FaLinkedinIn
                 size={30}
-                style={{ color: "#CA8FDD", marginTop: 20, marginLeft: 20 }}
+                style={{
+                  color: "#143d81",
+                  marginTop: 20,
+                  marginLeft: 20,
+                  opacity: 0.8,
+                }}
               ></FaLinkedinIn>
             </div>
             <div
@@ -68,7 +78,12 @@ const Footer: React.FC = () => {
             >
               <FaInstagram
                 size={35}
-                style={{ color: "#CA8FDD", marginTop: 17, marginLeft: 20 }}
+                style={{
+                  color: "#143d81",
+                  marginTop: 17,
+                  marginLeft: 20,
+                  opacity: 0.8,
+                }}
               ></FaInstagram>
             </div>
           </div>
@@ -117,7 +132,7 @@ const Footer: React.FC = () => {
       </div>
       <hr className="line" />
       <div className="d-flex flex-row footer-second-container">
-        <h5 style={{ color: "#755A7D" }}>
+        <h5 style={{ color: "#143d81", opacity: 0.6 }}>
           BookStore - © 2023 All Rights Reserved
         </h5>
         <h5 className="footer-author-details">Made with ♥ by RAX</h5>

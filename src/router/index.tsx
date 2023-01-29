@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import Presentation from "../pages/Presentation/Presentation";
+import BooksPage from "../pages/BooksPage/BooksPage";
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Route path="/" element={<Presentation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
+        <Route path="/books" element={<BooksPage />} />
 
         {/* custom 404 */}
         <Route path="/404" element={<div>404</div>} />

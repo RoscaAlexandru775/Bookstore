@@ -15,13 +15,13 @@ const TrendingBookCard: React.FC<{ book: IBook }> = ({ book }) => {
         <div className="d-flex flex-row mt-5">
           <div
             style={{
-              backgroundColor: "#e0b7ed",
+              backgroundColor: "#83aff7",
               borderRadius: 5,
               paddingInline: 20,
               paddingBlock: 10,
             }}
           >
-            <div style={{ color: "#8D28AD" }}>
+            <div style={{ color: "#143d81" }}>
               {toTitleCase(book.bookGenre)}
             </div>
           </div>

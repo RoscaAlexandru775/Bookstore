@@ -12,7 +12,7 @@ const TestimonialsCard: React.FC = () => {
       id: 1,
       rating: 4,
       description:
-        "Shoping book in Clevr. is very easy. Quick delivery and fast respon. They services is awesome!",
+        "Shoping book in Bookstore. is very easy. Quick delivery and fast respon. They services is awesome!",
       author: "Steve Henry",
       occupation: "Book Lovers",
     },
@@ -20,7 +20,7 @@ const TestimonialsCard: React.FC = () => {
       id: 2,
       rating: 3,
       description:
-        "Clevr went above and beyond - great and friendly customer service and prompt delivery of my book. I highly recommend them. Many thanks!",
+        "Bookstore went above and beyond - great and friendly customer service and prompt delivery of my book. I highly recommend them. Many thanks!",
       author: "Jubaedah",
       occupation: "CEO of Jubaedah Store",
     },

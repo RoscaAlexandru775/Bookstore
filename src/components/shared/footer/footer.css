@@ -8,7 +8,7 @@
 .subscribe-button {
     margin-top: 0px;
     margin-left: 20px;
-    background-color: #8D28AD;
+    background-color: #143d81;
     color: #FFFFFF;
     padding: 12px;
     border-radius: 5px;
@@ -16,7 +16,8 @@
     font-size: 20px;
 }
 .footer-author-details {
-    color: #755A7D; 
+    color: #143d81;
+    opacity: 0.6; 
     margin-right: 150px;
     margin-left: auto;
     

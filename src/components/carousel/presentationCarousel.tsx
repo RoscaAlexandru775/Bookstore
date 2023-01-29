@@ -17,7 +17,7 @@ const PresentationCarousel: React.FC = () => {
             style={{
               width: "99.1vw",
               height: 700,
-              backgroundColor: "#430D54",
+              backgroundColor: "#65c8ff",
               opacity: 0.8,
             }}
           ></div>
@@ -39,7 +39,7 @@ const PresentationCarousel: React.FC = () => {
                 className="shadow"
                 style={{
                   marginTop: 20,
-                  backgroundColor: "#8D28AD",
+                  backgroundColor: "#143d81",
                   color: "white",
                   padding: 12,
                   borderRadius: 5,
@@ -58,7 +58,7 @@ const PresentationCarousel: React.FC = () => {
         </Carousel.Item>
         <Carousel.Item interval={10000}>
           <div
-            style={{ width: "99.1vw", height: 700, backgroundColor: "#451355" }}
+            style={{ width: "99.1vw", height: 700, backgroundColor: "#65c8ff" }}
           ></div>
           <Carousel.Caption>
             <div
@@ -116,7 +116,7 @@ const PresentationCarousel: React.FC = () => {
                 className="shadow"
                 style={{
                   marginTop: 20,
-                  backgroundColor: "#D9176C",
+                  backgroundColor: "#143d81",
                   color: "white",
                   padding: 12,
                   borderRadius: 5,
