@@ -7,7 +7,7 @@ import logo from "../../assets/logo/bookstore.png";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login() {
+const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const emailRef: LegacyRef<HTMLInputElement> = useRef(null);
@@ -163,4 +163,5 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;

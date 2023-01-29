@@ -1,0 +1,24 @@
+.right-arrow {
+    width: 57px;
+    height: 57px;
+    padding-right: 50px;
+    border-radius: 50px;
+    box-shadow: #C4C4C4  3px 3px 3px ;
+    background-color: white;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.left-arrow {
+    width: 57px;
+    height: 57px;
+    padding-right: 50px;
+    border-radius: 50px;
+    box-shadow: #C4C4C4  3px 3px 3px ;
+    background-color: white;
+    margin-right: 210px;
+    margin-top: 100px;   
+}
+.arrow {
+    margin-left: 11px;
+    margin-top: 10px;
+}

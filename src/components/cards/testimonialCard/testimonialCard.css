@@ -1,0 +1,19 @@
+.testimonials-card{
+    width: 428px;
+    padding: 20px;
+    padding-right: 50px;
+    border-radius: 10px;
+    box-shadow: #C4C4C4  5px 10px 18px ;
+    margin-bottom: 100px;
+}
+.testimonials-image{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    margin-left: auto;
+}
+.testimonials-start-container{
+    display: flex;
+    flex-direction: row;
+}

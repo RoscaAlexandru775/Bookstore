@@ -1,0 +1,8 @@
+.shadow {
+    box-shadow: 5px 10px 8px 10px #888888;
+  }
+  .reviewed-books-container {
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }

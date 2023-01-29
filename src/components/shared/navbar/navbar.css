@@ -1,0 +1,77 @@
+.navbar-button-create {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    
+    background-color: #8D28AD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding-inline: 30px;
+    font-size: 18px;
+}
+.navbar-button-menu {
+    height: 53px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+    background-color: white ;
+    color: #8D28AD;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    padding-inline: 20px;
+    font-size: 18px;
+}
+.navbar-button-menu:hover {
+    background-color: #8D28AD;
+    color: white;
+}
+.navbar-button-signin {
+    margin-bottom: 40px;
+    font-size: 20px;
+    
+    margin-top: 25px;
+    font-weight: bold;
+    color: #636363;
+    border: none;
+    background-color: transparent;
+}
+.search {
+    margin-top: 10;
+}
+.search input {
+    height: 63px;
+    width : 763px;
+    background-color: #F3F3F3;
+
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    padding-inline: 30px;
+    font-size: 18px;
+    font-weight: 600;
+}
+::-webkit-input-placeholder {
+    color: #A4A4A4;
+}
+.search input:focus {
+    outline: none;
+}
+.searchIcon {
+    display: grid;
+    background-color: white;
+    place-items: center;
+}
+.navbar-item {
+    color: #FFFFFF;
+    opacity: 0.6;
+    margin-left: 80px;
+    font-weight: 550;
+}
+.navbar-item:hover {
+    font-weight: 700;
+    opacity: 1;
+}

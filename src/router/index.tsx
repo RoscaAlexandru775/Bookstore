@@ -2,13 +2,14 @@ import React from "react";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import Presentation from "../pages/Presentation/Presentation";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
         {/* public routes */}
-        <Route path="/" element={<div>Presentation Page</div>} />
+        <Route path="/" element={<Presentation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
 

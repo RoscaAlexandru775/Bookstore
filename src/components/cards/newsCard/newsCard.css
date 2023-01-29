@@ -1,0 +1,40 @@
+.news-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.news-card {
+    width: 372px;
+}
+.news-image {
+    width: 372px;
+    height: 210px;
+    background-color: #c4c4c4;
+    border-radius: 10px;
+}
+.news-title {
+    margin-top: 20px;
+}
+.news-author-name {
+    margin-top: -5px;
+}
+.news-date {
+    margin-top: -10px;
+}
+.news-author-image {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+}
+.news-author{
+    display: flex;
+    flex-direction: row;
+}
+.news-author-info{
+    margin-left: 15px;
+    margin-top: 10px;
+}

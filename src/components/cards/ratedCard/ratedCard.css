@@ -1,0 +1,32 @@
+.rating {
+    color: white;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}   
+.star-container{
+    background-color: #FF7A00;
+    padding:  15px;
+    border-radius: 50px;
+}
+.rating-container{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    background-color: #B7B7B7;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.image{
+    width: 170px;
+    height: 243px;
+    border-radius: 20px;
+}
+.author-info{
+    opacity: 0.6;
+}
+.book-genre{
+    color: #8D28AD;
+    margin-top: 30px;
+}

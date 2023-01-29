@@ -1,0 +1,68 @@
+.line {
+    width: 100%;
+    color: #000000;
+    background-color: #000000;
+    height: .1;
+    border-color : #000000;
+}
+.subscribe-button {
+    margin-top: 0px;
+    margin-left: 20px;
+    background-color: #8D28AD;
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
+.footer-author-details {
+    color: #755A7D; 
+    margin-right: 150px;
+    margin-left: auto;
+    
+}
+.footer-second-container {
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px; 
+}
+.footer-first-column{
+    width: 25vw;
+    margin-left: 50px;
+}
+.footer-logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+.footer-logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+.footer-description{
+    color: #755A7D;
+    margin-top: 20px;
+    margin-right: 50px;
+    font-size: 17px;
+}
+.footer-second-column{
+    width: 25vw;
+    margin-left: 7vw;
+}
+.footer-links-container{
+    margin-left: -30px;
+    margin-top: 30px;
+    color: #755A7D;
+    font-weight: 500;
+    font-size: 20px;
+}
+.footer-third-column{
+    width: 25vw;
+    margin-left: 7vw;
+    margin-top: 2rem;
+}
+.footer-newsletter-input{
+    width: 15vw;
+    color: #F3F3F3;
+}
