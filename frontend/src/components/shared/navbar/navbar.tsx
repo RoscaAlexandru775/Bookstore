@@ -52,7 +52,7 @@ export default function Navbar() {
             style={{
               color: "#A4A4A4",
               position: "absolute",
-              marginLeft: "34vw",
+              marginLeft: "38vw",
               marginTop: 32,
             }}
           ></BiSearch>
@@ -84,7 +84,7 @@ export default function Navbar() {
             backgroundColor: "#143d81",
             width: "100%",
             height: 60,
-            marginBottom: 100,
+            marginBottom: 50,
           }}
         >
           <IoMdArrowDropup

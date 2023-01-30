@@ -1,10 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import { BsCircleFill } from "react-icons/bs";
 import { BsBasket2 } from "react-icons/bs";
-import { FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
-
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../config/axiosInstance";
 import { IBook } from "../../../models/book";
@@ -41,7 +38,7 @@ export default function Book({ book }: { book: IBook }) {
     }
   };
 
-  const getBookReviews = useCallback(async () => {
+  const getBookReviews = async () => {
     try {
       const response = await axiosInstance.get(
         `/review/get-book-reviews/${book.id}`
@@ -56,7 +53,7 @@ export default function Book({ book }: { book: IBook }) {
       //     isError: true,
       //   });
     }
-  }, []);
+  };
   useEffect(() => {
     (async () => {
       await getBookReviews();
@@ -83,11 +80,12 @@ export default function Book({ book }: { book: IBook }) {
           borderRadius: 20,
         }}
         src={book.image}
+        alt=""
       />
       <div>
-        {showButton == true ? (
+        {showButton === true ? (
           <div
-            style={{ position: "absolute", marginTop: -200, marginLeft: 250 }}
+            style={{ position: "absolute", marginTop: -130, marginLeft: 250 }}
           >
             <div
               onClick={reserveBook}
