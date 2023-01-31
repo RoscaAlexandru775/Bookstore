@@ -1,7 +1,6 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { IBook } from "../../../models/book";
-import { toTitleCase } from "../../../utils/string";
 
 const TrendingBookCard: React.FC<{ book: IBook }> = ({ book }) => {
   return (
@@ -21,9 +20,7 @@ const TrendingBookCard: React.FC<{ book: IBook }> = ({ book }) => {
               paddingBlock: 10,
             }}
           >
-            <div style={{ color: "#143d81" }}>
-              {toTitleCase(book.bookGenre)}
-            </div>
+            <div style={{ color: "#143d81" }}>{book.book_genre}</div>
           </div>
           <div
             className="d-flex flex-row"
@@ -36,12 +33,10 @@ const TrendingBookCard: React.FC<{ book: IBook }> = ({ book }) => {
             }}
           >
             <AiFillStar size={25} color="#FF7A00"></AiFillStar>
-            <div style={{ color: "#FF7A00", marginLeft: 5 }}>
-              {book.rating.toPrecision(3)}
-            </div>
+            <div style={{ color: "#FF7A00", marginLeft: 5 }}>{book.rating}</div>
           </div>
         </div>
-        <h5 style={{ marginTop: 20 }}>{toTitleCase(book.name)}</h5>
+        <h5 style={{ marginTop: 20 }}>{book.name}</h5>
         <p>{book.author}</p>
       </div>
     </div>

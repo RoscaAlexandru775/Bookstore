@@ -1,6 +1,6 @@
 export type IBook = {
-    id: number;
-    bookGenre: string;
+    book_id: number;
+    book_genre: string;
     description: string;
     name: string;
     image: string;

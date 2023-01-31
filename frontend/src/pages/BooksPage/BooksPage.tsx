@@ -12,9 +12,11 @@ import axiosInstance from "../../config/axiosInstance";
 import { useLocation } from "react-router-dom";
 import { IBook } from "../../models/book";
 import "./BooksPage.css";
+import UseToastContext from "../../hooks/useToastContext";
 
 const BooksPage: React.FC = () => {
   const location = useLocation();
+  const addToast = UseToastContext();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [trendingBooks, setTrendingBooks] = useState<IBook[]>([]);
   const [loading, setLoading] = useState(true);
@@ -92,12 +94,14 @@ const BooksPage: React.FC = () => {
   const getBooks = async () => {
     setLoading(true);
     setBooks([[]]);
+
     try {
       const response = await axiosInstance.get(
         `/book/get-filtered-books?page=${page}&categories=${selectedCategory}&lowerRating=${ratingFilterValues[0]}&upperRating=${ratingFilterValues[1]}&lowerNumberOfRatings=${reviewsFilterValues[0]}&upperNumberOfRatings=${reviewsFilterValues[1]}`
       );
+
       if (response.status === 200) {
-        let aux = response.data.content;
+        let aux = response.data.books;
         let chunks = Math.ceil(aux.length / 3);
         let chunksArr: [IBook[]] = [[]];
         for (let i = 0, j = 0; i < chunks; i++, j += 3) {
@@ -107,7 +111,13 @@ const BooksPage: React.FC = () => {
         setBooks(chunksArr);
         setTotalPages(response.data.totalPages);
       }
-    } catch (err: any) {}
+    } catch (err: any) {
+      addToast({
+        title: "Error",
+        message: `Could not get books.`,
+        isError: true,
+      });
+    }
     setLoading(false);
   };
   const getSearchBooks = async () => {
@@ -118,7 +128,7 @@ const BooksPage: React.FC = () => {
         `/book/search-books?searchQuery=${location.state?.searchString}`
       );
       if (response.status === 200) {
-        let aux = response.data;
+        let aux = response.data.books;
         let chunks = Math.ceil(aux.length / 3);
         let chunksArr: [IBook[]] = [[]];
         for (let i = 0, j = 0; i < chunks; i++, j += 3) {
@@ -126,8 +136,15 @@ const BooksPage: React.FC = () => {
         }
         chunksArr.shift();
         setBooks(chunksArr);
+        setTotalPages(response.data.totalPages);
       }
-    } catch (err: any) {}
+    } catch (err: any) {
+      addToast({
+        title: "Error",
+        message: `Could not get books.`,
+        isError: true,
+      });
+    }
     setLoading(false);
   };
 

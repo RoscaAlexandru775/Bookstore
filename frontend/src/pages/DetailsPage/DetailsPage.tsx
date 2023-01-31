@@ -2,7 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import StarRating from "../../components/shared/starRating/starRating";
 import BooksCarousel from "../../components/carousel/booksCarousel";
 import Footer from "../../components/shared/footer/footer";
+import { useActions, useData } from "../../contexts/mainContext";
 import Navbar from "../../components/shared/navbar/navbar";
+import UseToastContext from "../../hooks/useToastContext";
 import axiosInstance from "../../config/axiosInstance";
 import { toTitleCase } from "../../utils/string";
 import { useLocation } from "react-router-dom";
@@ -12,42 +14,44 @@ import "./DetailsPage.css";
 
 const DetailsPage: React.FC = () => {
   const location = useLocation();
+  const addToast = UseToastContext();
+  const state = useData();
+  const { addToCart } = useActions();
 
   const [trendingBooks, setTrendingBooks] = useState<IBook[]>([]);
   const [book, setBook] = useState<IBook>(location.state.book as IBook);
-  // const book = {
-  //   id: 1,
-  //   name: "The Alchemist",
-  //   description:
-  //     "The Alchemist is a novel by Paulo Coelho that was first published in 1988.",
-  //   rating: 4,
-  //   author: "Paulo Coelho",
-  //   bookGenre: "Adventure",
-  //   image: "https://i.imgur.com/1Q1ZQ2r.jpg",
-  // };
-
   const [loading, setLoading] = useState(true);
   const [reviews] = useState([]);
 
   const reserveBook = async (event: { stopPropagation: () => void }) => {
     event.stopPropagation();
     try {
-      const response = await axiosInstance.post(
-        `borrowed-book/reserve-book/${book.id}`
-      );
-      if (response.status === 200) {
-        // dispatch({ type: ADD_TO_CART });
-        // addToast({
-        //   title: "Book reserved successfully",
-        //   message: "The book was reserved. Check resrevation page.",
-        // });
+      const response = await axiosInstance.post(`cart/add-to-cart`, {
+        book_id: book.book_id,
+        user_id: state.userId,
+      });
+
+      if (response.status === 201) {
+        addToCart();
+        addToast({
+          title: "Book reserved successfully",
+          message: "The book was reserved. Check resrevation page.",
+        });
       }
     } catch (err: any) {
-      //   addToast({
-      //     title: "Couldn't reserve the book",
-      //     message: `Error while trying to reserve the book. ${err.response.data.message}. Please try again later.`,
-      //     isError: true,
-      //   });
+      if (err.response.status === 409) {
+        addToast({
+          isError: true,
+          title: "Book already reserved",
+          message: "The book was already reserved. Check cart page.",
+        });
+      } else {
+        addToast({
+          title: "Couldn't reserve the book",
+          message: `Error while trying to reserve the book. ${err.response.data.message}. Please try again later.`,
+          isError: true,
+        });
+      }
     }
   };
 
@@ -61,11 +65,11 @@ const DetailsPage: React.FC = () => {
         setTrendingBooks(response.data);
       }
     } catch (err: any) {
-      //   addToast({
-      //     title: "Error",
-      //     message: "Couldn't get trending books",
-      //     isError: true,
-      //   });
+      addToast({
+        title: "Error",
+        message: "Couldn't get trending books",
+        isError: true,
+      });
     }
     setLoading(false);
   }, []);
@@ -93,7 +97,7 @@ const DetailsPage: React.FC = () => {
             marginBottom: 20,
           }}
         >
-          {toTitleCase(book.bookGenre)} / {toTitleCase(book.name)}
+          {book.book_genre} / {book.name}
         </p>
       </div>
       <div
@@ -114,7 +118,7 @@ const DetailsPage: React.FC = () => {
             >
               <StarRating rating={book.rating} />
               <h5 style={{ marginLeft: 10, color: "#FF7A00", marginTop: 2 }}>
-                {book.rating.toPrecision(3)}
+                {book.rating}
               </h5>
             </div>
             <div

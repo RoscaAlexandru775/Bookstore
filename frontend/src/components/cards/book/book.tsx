@@ -6,59 +6,50 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../../config/axiosInstance";
 import { IBook } from "../../../models/book";
 import { toTitleCase } from "../../../utils/string";
-
+import { useActions, useData } from "../../../contexts/mainContext";
 import "./book.css";
+import UseToastContext from "../../../hooks/useToastContext";
 
 export default function Book({ book }: { book: IBook }) {
   const [showButton, setShowButton] = useState<boolean>(false);
-  //   const [state, dispatch] = useMainContext();
   const [reviews, setReviews] = useState([]);
-  //   const addToast = UseToastContext();
+  const addToast = UseToastContext();
+  const state = useData();
+  const { addToCart } = useActions();
   const navigate = useNavigate();
 
   const reserveBook = async (event: { stopPropagation: () => void }) => {
     event.stopPropagation();
     try {
-      const response = await axiosInstance.post(
-        `borrowed-book/reserve-book/${book.id}`
-      );
-      if (response.status === 200) {
-        // dispatch({ type: ADD_TO_CART });
-        // addToast({
-        //   title: "Book reserved successfully",
-        //   message: "The book was reserved. Check resrevation page.",
-        // });
+      const response = await axiosInstance.post(`cart/add-to-cart`, {
+        book_id: book.book_id,
+        user_id: state.userId,
+      });
+
+      if (response.status === 201) {
+        addToCart();
+        addToast({
+          title: "Book reserved successfully",
+          message: "The book was reserved. Check cart page.",
+        });
       }
     } catch (err: any) {
-      //   addToast({
-      //     title: "Couldn't reserve the book",
-      //     message: `Error while trying to reserve the book. ${err.response.data.message}. Please try again later.`,
-      //     isError: true,
-      //   });
+      if (err.response.status === 409) {
+        addToast({
+          isError: true,
+          title: "Book already reserved",
+          message: "The book was already reserved. Check resrevation page.",
+        });
+      } else {
+        addToast({
+          title: "Couldn't reserve the book",
+          message: `Error while trying to reserve the book. ${err.response.data.message}. Please try again later.`,
+          isError: true,
+        });
+      }
     }
   };
 
-  const getBookReviews = async () => {
-    try {
-      const response = await axiosInstance.get(
-        `/review/get-book-reviews/${book.id}`
-      );
-      if (response.status === 200) {
-        setReviews(response.data);
-      }
-    } catch (err: any) {
-      //   addToast({
-      //     title: "Error",
-      //     message: "Couldn't get book reviews",
-      //     isError: true,
-      //   });
-    }
-  };
-  useEffect(() => {
-    (async () => {
-      await getBookReviews();
-    })();
-  }, [getBookReviews]);
   return (
     <div
       style={{ marginLeft: 80 }}
@@ -69,7 +60,7 @@ export default function Book({ book }: { book: IBook }) {
         setShowButton(false);
       }}
       onClick={() => {
-        navigate("/book/" + book.id, { state: { book } });
+        navigate("/book/" + book.book_id, { state: { book } });
       }}
     >
       <img
@@ -109,7 +100,7 @@ export default function Book({ book }: { book: IBook }) {
 
       <div className="d-flex flex-row mt-3">
         <IoStar color="#FF7A00" size={20}></IoStar>
-        <h5 style={{ marginLeft: 10 }}>{book.rating.toPrecision(3)}</h5>
+        <h5 style={{ marginLeft: 10 }}>{book.rating}</h5>
         <BsCircleFill
           size={7}
           style={{ marginLeft: 7, marginTop: 9 }}
@@ -119,7 +110,7 @@ export default function Book({ book }: { book: IBook }) {
         </p>
       </div>
       <p style={{ color: "#143d81", fontSize: 22, fontWeight: 650 }}>
-        {toTitleCase(book.bookGenre)}
+        {toTitleCase(book.book_genre)}
       </p>
       <h2 style={{ width: 350 }}>{toTitleCase(book.name)}</h2>
       <p style={{ opacity: 0.6, fontSize: 18 }}>{book.author}</p>

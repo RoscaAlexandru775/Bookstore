@@ -1,0 +1,13 @@
+CREATE TABLE books(
+  book_id SERIAL PRIMARY KEY,
+  author VARCHAR(255) NOT NULL,
+  availability NUMERIC(10) NOT NULL DEFAULT 0,
+  book_genre VARCHAR(255) NOT NULL,
+  description VARCHAR(1000),
+  image VARCHAR(1000),
+  name VARCHAR(255) NOT NULL,
+  number_of_ratings NUMERIC(10) NOT NULL DEFAULT 0,
+  rating NUMERIC(10) NOT NULL DEFAULT 0,
+  stock NUMERIC(10) NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);

@@ -24,7 +24,7 @@ const PresentationCarousel: React.FC = () => {
           <Carousel.Caption>
             <div
               style={{
-                marginBottom: "10%",
+                marginBottom: "20%",
                 marginRight: "70%",
                 textAlign: "left",
               }}
@@ -35,24 +35,6 @@ const PresentationCarousel: React.FC = () => {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
               </p>
-              <button
-                className="shadow"
-                style={{
-                  marginTop: 20,
-                  backgroundColor: "#143d81",
-                  color: "white",
-                  padding: 12,
-                  borderRadius: 5,
-                  border: "none",
-                  fontSize: 20,
-                }}
-              >
-                Go to Collections{" "}
-                <AiOutlineArrowRight
-                  size={25}
-                  style={{ marginLeft: 40, marginBottom: 4 }}
-                />
-              </button>
             </div>
           </Carousel.Caption>
         </Carousel.Item>
@@ -112,24 +94,6 @@ const PresentationCarousel: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <button
-                className="shadow"
-                style={{
-                  marginTop: 20,
-                  backgroundColor: "#143d81",
-                  color: "white",
-                  padding: 12,
-                  borderRadius: 5,
-                  border: "none",
-                  fontSize: 20,
-                }}
-              >
-                Go to Collections{" "}
-                <AiOutlineArrowRight
-                  size={25}
-                  style={{ marginLeft: 40, marginBottom: 4 }}
-                />
-              </button>
             </div>
 
             <div

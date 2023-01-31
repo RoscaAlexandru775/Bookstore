@@ -1,0 +1,6 @@
+CREATE TABLE cart(
+  cart_id SERIAL PRIMARY KEY,
+  user_id NUMERIC(10) NOT NULL,
+  book_id NUMERIC(10) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);

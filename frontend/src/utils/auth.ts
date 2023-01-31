@@ -28,5 +28,9 @@ export const getUserNameFromToken = (token: string): string => {
   const payload = parseJWTPayload(token);
   return payload.name;
 };
+export const getUserIdFromToken = (token: string): string => {
+  const payload = parseJWTPayload(token);
+  return payload.userId;
+};
 
 export default {};

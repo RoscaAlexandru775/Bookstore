@@ -9,10 +9,10 @@ const ReviewedBook: React.FC<{ book: IBook }> = ({ book }) => {
     <div>
       <div style={{ borderRadius: 20 }}>
         <div className="rating-container">
-          <div className="star-container">
+          <div className="star-container" style={{ paddingInline: 20 }}>
             <IoStar size={15} style={{ marginTop: -5 }} color="white" />
           </div>
-          <div className="rating">{book.rating.toPrecision(3)}</div>
+          <div className="rating">{book.rating}</div>
         </div>
         <img
           className="reviewed-book-image"
@@ -21,7 +21,7 @@ const ReviewedBook: React.FC<{ book: IBook }> = ({ book }) => {
         />
       </div>
       <div style={{ textAlign: "center", width: 270 }}>
-        <h4 style={{ color: "#83aff7", marginTop: 30 }}>{book.bookGenre}</h4>
+        <h4 style={{ color: "#83aff7", marginTop: 30 }}>{book.book_genre}</h4>
         <h3>{toTitleCase(book.name)}</h3>
         <h5 className="author-info">{book.author}</h5>
       </div>

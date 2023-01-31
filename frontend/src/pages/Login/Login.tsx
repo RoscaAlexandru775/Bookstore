@@ -1,14 +1,23 @@
 import React, { LegacyRef, useEffect, useRef, useState } from "react";
-import { EMAIL_REGEX, PASSWORD_REGEX } from "../../utils/auth";
+import {
+  EMAIL_REGEX,
+  getUserNameFromToken,
+  getUserRoleFromToken,
+  getUserIdFromToken,
+  PASSWORD_REGEX,
+} from "../../utils/auth";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axiosInstance from "../../config/axiosInstance";
 import logo from "../../assets/logo/bookstore.png";
 import { useNavigate } from "react-router-dom";
+import { useActions } from "../../contexts/mainContext";
+
 import "./Login.css";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const { setUserData } = useActions();
 
   const emailRef: LegacyRef<HTMLInputElement> = useRef(null);
   const errRef: LegacyRef<HTMLInputElement> = useRef(null);
@@ -43,26 +52,21 @@ const Login: React.FC = () => {
       return;
     }
     try {
-      const pass = password;
       const response = await axiosInstance.post(
         "/user/login",
-        JSON.stringify({ email, password }),
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          withCredentials: true,
-          auth: {
-            username: email,
-            password: pass,
-          },
-        }
+        JSON.stringify({ email, password })
       );
 
       const token = response.data.jwt;
       if (response.status === 200) {
         localStorage.setItem("authToken", token);
+
+        setUserData(
+          getUserNameFromToken(token),
+          getUserRoleFromToken(token),
+          parseInt(getUserIdFromToken(token))
+        );
+
         navigate("/");
       }
     } catch (error) {}

@@ -8,6 +8,7 @@ import BooksPage from "../pages/BooksPage/BooksPage";
 import RoleAccess from "./roleAccess";
 import { USER_ROLE } from "../models/roles";
 import ToastContextProvider from "../contexts/toastContext";
+import Cart from "../pages/Cart/Cart";
 
 function Router() {
   return (
@@ -18,12 +19,12 @@ function Router() {
           <Route path="/" element={<Presentation />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<SignUp />} />
-          <Route path="/books" element={<BooksPage />} />
-          <Route path="/book/:id" element={<DetailsPage />} />
+
           {/* user routes */}
           <Route element={<RoleAccess roles={[USER_ROLE]} />}>
             <Route path="/book/:id" element={<DetailsPage />} />
             <Route path="/books" element={<BooksPage />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
 
           {/* custom 404 */}

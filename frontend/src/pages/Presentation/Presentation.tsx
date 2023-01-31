@@ -13,10 +13,12 @@ import TopRatedBooksCarousel from "../../components/carousel/topRatedBooksCarous
 import NewsCard from "../../components/cards/newsCard/newsCard";
 import TestimonialsCard from "../../components/cards/testimonialCard/testimonialCard";
 import InfoCard from "../../components/cards/infoCard/infoCard";
+import UseToastContext from "../../hooks/useToastContext";
 
 const Presentation: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [trendingBooks, setTrendingBooks] = useState<IBook[]>([]);
+  const addToast = UseToastContext();
 
   const getTrendingsBooks = useCallback(async () => {
     try {
@@ -26,7 +28,13 @@ const Presentation: React.FC = () => {
       if (response.status === 200) {
         setTrendingBooks(response.data);
       }
-    } catch (err: any) {}
+    } catch (err: any) {
+      addToast({
+        title: "Couldn't get trending books",
+        message: `Error while trying to get trending books. ${err.response.data.message}. Please try again later.`,
+        isError: true,
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -47,8 +55,8 @@ const Presentation: React.FC = () => {
         </p>
       </div>
       <div className="d-flex flex-row justify-content-evenly reviewed-books-container">
-        {trendingBooks.map((book: IBook) => (
-          <ReviewedBook key={book.id} book={book}></ReviewedBook>
+        {trendingBooks.map((book: IBook, index: number) => (
+          <ReviewedBook key={index} book={book}></ReviewedBook>
         ))}
       </div>
       <BooksCarousel title="Trending Books"></BooksCarousel>
